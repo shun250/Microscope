@@ -3,3 +3,5 @@ page-js-ie-support
 accounts-ui-bootstrap-dropdown
 spin
 paginated-subscription
+iron-router
+HTML5-History-API
