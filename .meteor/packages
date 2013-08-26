@@ -13,3 +13,4 @@ standard-app-packages
 HTML5-History-API
 iron-router
 page-js-ie-support
+iron-transitioner

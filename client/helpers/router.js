@@ -6,6 +6,7 @@ var mustBeLoggedIn = function() {
 }
 
 Router.configure({
+  layout: 'body',
   loadingTemplate: 'loading',
   notFoundTemplate: 'accessDenied',
   before: clearErrors

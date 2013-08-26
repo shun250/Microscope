@@ -1,12 +1,13 @@
 <head>
   <title>Microscope</title>
 </head>
-<body>
+
+<template name="body">
   <div class="container">
     {{> header}}
     {{> errors}}
     <div id="main" class="row-fluid">
-      {{renderPage}}
+      {{> transitionerPanes}}
     </div>
   </div>
-</body>
+</template>
