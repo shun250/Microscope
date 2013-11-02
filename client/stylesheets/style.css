@@ -162,6 +162,13 @@ a.upvote.btn.disabled {
   background-color: #068894;
 }
 
+a.downvote.btn.disabled {
+  width: 1.75em;
+  height: 2.75em;
+  border-radius: 0;
+  background-color: #068894;
+}
+
 #spinner {
   height: 300px; }
 
@@ -191,6 +198,10 @@ a.upvote.btn.disabled {
   .post.invisible {
     opacity: 0; }
   .post .upvote {
+    display: block;
+    margin: 7px 12px 0 0;
+    float: left; }
+  .post .downvote {
     display: block;
     margin: 7px 12px 0 0;
     float: left; }
