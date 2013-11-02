@@ -1,10 +1,5 @@
 .grid-block, .main, .post, .comments li, .comment-form {
-  background: #fff;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  background: #f6f6f6;
   padding: 10px;
   margin-bottom: 10px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
@@ -12,18 +7,160 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); }
 
 body {
-  background: #eee;
+  background: #00ac65;
   color: #666666; }
 
-.navbar {
+
+
+/*.navbar {
   margin-bottom: 10px; }
-  /* line 32, ../sass/style.scss */
+
   .navbar .navbar-inner {
     -webkit-border-radius: 0px 0px 3px 3px;
     -moz-border-radius: 0px 0px 3px 3px;
     -ms-border-radius: 0px 0px 3px 3px;
     -o-border-radius: 0px 0px 3px 3px;
     border-radius: 0px 0px 3px 3px; }
+*/
+
+.cbp-af-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #f6f6f6;
+    z-index: 10000;
+    height: 100px;
+    overflow: hidden;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+ 
+.cbp-af-header .cbp-af-inner {
+    width: 90%;
+    max-width: 69em;
+    margin: 0 auto;
+    padding: 0 1.875em;
+}
+ 
+.cbp-af-header h1,
+.cbp-af-header nav {
+    display: inline-block;
+    position: relative;
+}
+ 
+ /* We just have one-lined elements, so we'll center the elements with the line-height set to the height of the header */
+.cbp-af-header h1,
+.cbp-af-header nav a {
+    line-height: 100px;
+}
+ 
+.cbp-af-header h1 {
+    text-transform: uppercase;
+    color: #00ac65;
+    letter-spacing: 4px;
+    font-size: 4em;
+    margin: 0;
+    float: left;
+}
+ 
+.cbp-af-header nav {
+    float: right;
+}
+ 
+.cbp-af-header nav a {
+    color: #aaa;
+    font-weight: 700;
+    margin: 0 0 0 20px;
+    font-size: 1.4em;
+}
+ 
+.cbp-af-header nav a:hover {
+    color: #00ac65;
+    text-decoration: none;
+}
+ 
+/* Transitions and class for reduced height */
+.cbp-af-header h1,
+.cbp-af-header nav a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+ 
+.cbp-af-header.cbp-af-header-shrink {
+    height: 90px;
+}
+ 
+.cbp-af-header.cbp-af-header-shrink h1,
+.cbp-af-header.cbp-af-header-shrink nav a {
+    line-height: 90px;
+}
+ 
+.cbp-af-header.cbp-af-header-shrink h1 {
+    font-size: 2em;
+}
+ 
+/* Example Media Queries */
+@media screen and (max-width: 55em) {
+     
+    .cbp-af-header .cbp-af-inner {
+        width: 100%;
+    }
+ 
+    .cbp-af-header h1,
+    .cbp-af-header nav {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+        float: none;
+    }
+ 
+    .cbp-af-header h1,
+    .cbp-af-header nav a {
+        line-height: 115px;
+    }
+ 
+    .cbp-af-header nav a {
+        margin: 0 10px;
+    }
+ 
+    .cbp-af-header.cbp-af-header-shrink h1,
+    .cbp-af-header.cbp-af-header-shrink nav a {
+        line-height: 45px;
+    }
+ 
+    .cbp-af-header.cbp-af-header-shrink h1 {
+        font-size: 2em;
+    }
+ 
+    .cbp-af-header.cbp-af-header-shrink nav a {
+        font-size: 1em;
+    }
+}
+ 
+@media screen and (max-width: 32.25em) {
+    .cbp-af-header nav a {
+        font-size: 1em;
+    }
+}
+ 
+@media screen and (max-width: 24em) {
+    .cbp-af-header nav a,
+    .cbp-af-header.cbp-af-header-shrink nav a {
+        line-height: 1;
+    }
+}
+
+/* buttons */
+
+a.upvote.btn.disabled {
+  width: 1.75em;
+  height: 2.75em;
+  border-radius: 0;
+  background-color: #068894;
+}
 
 #spinner {
   height: 300px; }
@@ -38,7 +175,14 @@ body {
   -o-transition: all 300ms 0ms ease-in;
   transition: all 300ms 0ms ease-in;
   position: relative;
+  width: 100%;
   opacity: 1; }
+
+  div.post {
+    margin: 0;
+    border-top: 1px solid gray;
+    border-radius: 0px;
+  }
   .post:before, .post:after {
     content: "";
     display: table; }
@@ -55,10 +199,21 @@ body {
     .post .post-content h3 {
       margin: 0;
       line-height: 1.4;
-      font-size: 18px; }
+      font-size: 2em;
+      text-transform: uppercase;
+       }
       .post .post-content h3 a {
         display: inline-block;
-        margin-right: 5px; }
+        color: #aaa;
+        margin-right: 5px;
+         }
+
+      .post .post-content h3 a:hover {
+        color: #00ac65;
+        text-decoration: none;
+      }
+
+
       .post .post-content h3 span {
         font-weight: normal;
         font-size: 14px;

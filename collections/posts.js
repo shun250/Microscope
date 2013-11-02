@@ -8,14 +8,13 @@ Posts.allow({
 Posts.deny({
   update: function(userId, post, fieldNames) {
     // may only edit the following two fields:
-    return (_.without(fieldNames, 'url', 'title').length > 0);
+    return (_.without(fieldNames, 'title').length > 0);
   }
 });
 
 Meteor.methods({
   post: function(postAttributes) {
-    var user = Meteor.user(),
-      postWithSameLink = Posts.findOne({url: postAttributes.url});
+    var user = Meteor.user();
     
     // ensure the user is logged in
     if (!user)
@@ -25,15 +24,8 @@ Meteor.methods({
     if (!postAttributes.title)
       throw new Meteor.Error(422, 'Please fill in a headline');
     
-    // check that there are no previous posts with the same link
-    if (postAttributes.url && postWithSameLink) {
-      throw new Meteor.Error(302, 
-        'This link has already been posted', 
-        postWithSameLink._id);
-    }
-    
     // pick out the whitelisted keys
-    var post = _.extend(_.pick(postAttributes, 'url', 'title', 'message'), {
+    var post = _.extend(_.pick(postAttributes, 'title', 'message'), {
       userId: user._id, 
       author: user.username, 
       submitted: new Date().getTime(),
